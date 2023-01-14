@@ -9,16 +9,21 @@
   align-items: center;
 
   width: 100vw;
-  max-width: 720px;
+  max-width: 660px;
   height: 4rem;
-  padding: 0 1rem;
+
+  padding: 0 0.6rem;
+
+  background-color: #ffffff;
+  z-index: 10;
 
   .header_title {
     font-size: 1.4rem;
   }
 
   .back_arrow_img {
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 2rem;
+    height: 2rem;
+    padding-left: 0.3rem;
   }
 }
