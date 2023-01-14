@@ -4,10 +4,10 @@ import Component from "../core/Component";
 class Upload extends Component {
   template() {
     return `
+    <header class='header'></header>
     <main>
-      <header class='header'>header</header>
       <div>글작성 페이지</div>
-      <div>글 내용</div>
+      <ul>글 내용</ul>
     </main>
     `;
   }
