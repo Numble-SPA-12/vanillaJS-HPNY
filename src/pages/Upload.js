@@ -1,4 +1,5 @@
-import Component from "../core/Component.js";
+import Header from "../components/Header/index";
+import Component from "../core/Component";
 
 class Upload extends Component {
   template() {
@@ -9,6 +10,12 @@ class Upload extends Component {
       <div>글 내용</div>
     </main>
     `;
+  }
+
+  mounted() {
+    const $header = document.querySelector(".header");
+
+    new Header($header, {});
   }
 }
 

@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import Component from "../core/Component";
 
 class Post extends Component {
@@ -9,6 +10,12 @@ class Post extends Component {
       <div>글 내용</div>
     </main>
     `;
+  }
+
+  mounted() {
+    const $header = document.querySelector(".header");
+
+    new Header($header, {});
   }
 }
 
