@@ -4,9 +4,9 @@ import Component from "../core/Component";
 class Home extends Component {
   template() {
     return `
+    <header class='header' style="justify-content:flex-end"></header>
     <main>
-      <header class='header'></header>
-      <div>글작성 버튼</div>
+      <div>홈페이지</div>
       <ul>글 목록</ul>
     </main>
     `;
@@ -15,7 +15,7 @@ class Home extends Component {
   mounted() {
     const $header = document.querySelector(".header");
 
-    new Header($header, {});
+    new Header($header);
   }
 }
 

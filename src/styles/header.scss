@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100vw;
+  max-width: 720px;
+  height: 4rem;
+  padding: 0 1rem;
+
+  .header_title {
+    font-size: 1.4rem;
+  }
+
+  .back_arrow_img {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+}

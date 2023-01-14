@@ -4,10 +4,10 @@ import Component from "../core/Component";
 class Post extends Component {
   template() {
     return `
+    <header class='header'></header>
     <main>
-      <header class='header'>header</header>
-      <div>글 상세 페이지</div>
-      <div>글 내용</div>
+      <div>상세글 페이지</div>
+      <ul>글 내용</ul>
     </main>
     `;
   }
@@ -15,7 +15,7 @@ class Post extends Component {
   mounted() {
     const $header = document.querySelector(".header");
 
-    new Header($header, {});
+    new Header($header);
   }
 }
 
