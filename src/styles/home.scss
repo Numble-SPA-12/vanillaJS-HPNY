@@ -1,0 +1,20 @@
+main {
+  overflow: hidden;
+
+  .upload_post_button_container {
+    position: fixed;
+    top: 4rem;
+
+    width: calc(100vw - 40px);
+    max-width: 680px;
+    padding: 20px 15px;
+
+    text-align: center;
+    font-weight: bold;
+
+    background-color: #0095f6;
+    color: #ffffff;
+
+    border-radius: 0.5rem;
+  }
+}
