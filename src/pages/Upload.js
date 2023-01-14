@@ -15,7 +15,7 @@ class Upload extends Component {
   mounted() {
     const $header = document.querySelector(".header");
 
-    new Header($header, {});
+    new Header($header);
   }
 }
 
