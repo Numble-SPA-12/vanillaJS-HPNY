@@ -26,11 +26,17 @@ const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 export const navigateTo = (path) => {
-  window.history.pushState({}, "", window.location.origin + path);
-  render(path);
+  if (window.location.pathname !== path) {
+    window.history.pushState({}, "", window.location.origin + path);
+    render(path);
+  }
 };
 
 export const initializeRouter = () => {
+  window.addEventListener("popstate", () => {
+    render(window.location.pathname);
+  });
+
   window.addEventListener("DOMContentLoaded", () => {
     render(window.location.pathname);
   });
