@@ -1,5 +1,6 @@
 import Button from "../components/Button";
 import Header from "../components/Header/index";
+import PostList from "../components/PostList";
 import Component from "../core/Component";
 import { navigateTo } from "../router";
 
@@ -11,7 +12,7 @@ class Home extends Component {
     <header class='header' style="justify-content:flex-end"></header>
     <main>
       <div class='upload_post_button_container'></div>
-      <ul>글 목록</ul>
+      <section class='post_list_container'>글 목록</section>
     </main>
     `;
   }
@@ -21,12 +22,14 @@ class Home extends Component {
     const $uploadButtonContainer = document.querySelector(
       ".upload_post_button_container"
     );
+    const $postListContainer = document.querySelector(".post_list_container");
 
     new Header($header);
     new Button($uploadButtonContainer, {
       content: `게시글 작성하기`,
       onClick: this.goUploadPage,
     });
+    new PostList($postListContainer);
   }
 
   goUploadPage() {
