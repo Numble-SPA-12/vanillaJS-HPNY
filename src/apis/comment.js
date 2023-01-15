@@ -2,7 +2,7 @@ import instance from "./instance";
 
 export const createComment = async (postId, commentData) => {
   try {
-    const { data } = await instance(`/comment/${postId}`, commentData);
+    const { data } = await instance.post(`/comment/${postId}`, commentData);
     return data;
   } catch (err) {
     console.error(err);
@@ -11,7 +11,7 @@ export const createComment = async (postId, commentData) => {
 
 export const deleteComment = async (commentId) => {
   try {
-    const { data } = await instance(`/comment/${commentId}`);
+    const { data } = await instance.delete(`/comment/${commentId}`);
     return data;
   } catch (err) {
     console.error(err);

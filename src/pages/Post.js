@@ -1,4 +1,5 @@
 import { deletePost, getPostDetail } from "../apis/post";
+import CommentList from "../components/CommentList";
 import Button from "../components/common/Button";
 import Header from "../components/common/Header";
 import postDetail from "../components/PostDetail";
@@ -12,8 +13,9 @@ class Post extends Component {
     return `
     <header class='header'></header>
     <main>
-      <section class='post_detail_container'>상세글 페이지</section>
+      <div class='post_detail_container'></div>
       <div class='edit_delete_button_container'></div>
+      <ul class='comment_list'></ul>
     </main>
     `;
   }
@@ -39,6 +41,7 @@ class Post extends Component {
     const $buttonContainer = document.querySelector(
       ".edit_delete_button_container"
     );
+    const $commentList = document.querySelector(".comment_list");
 
     new Header($header);
     new postDetail($postDetail, {
@@ -56,6 +59,10 @@ class Post extends Component {
         onClick: () => this.$deletePost(this.$params),
       },
     ]);
+    new CommentList($commentList, {
+      commentList: this.$state.comments,
+      deleteCommentState: (commentId) => this.$deleteCommentState(commentId),
+    });
   }
 
   $goToEditPage(postId) {
@@ -70,6 +77,16 @@ class Post extends Component {
   async $deletePost(postId) {
     await deletePost(postId);
     navigateTo(`/`);
+  }
+
+  $deleteCommentState(commentId) {
+    const newComments = this.$state.comments.filter((comment) => {
+      return comment.commentId !== commentId;
+    });
+
+    this.setState({
+      comments: newComments,
+    });
   }
 }
 
