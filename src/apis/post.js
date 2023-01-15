@@ -14,7 +14,7 @@ export const getPostDetail = async (postId) => {
     const { data } = await instance.get(`/post/${postId}`);
     return data;
   } catch (err) {
-    return console.error(err);
+    return err;
   }
 };
 

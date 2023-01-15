@@ -4,7 +4,7 @@ import { navigateTo } from "../../router";
 class PostItem extends Component {
   template() {
     const htmlStr = this.$props.posts
-      .map(
+      ?.map(
         (post) =>
           `
           <li class="post_item_container" data-post-id=${post.postId}>

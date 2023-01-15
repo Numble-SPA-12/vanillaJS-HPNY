@@ -5,7 +5,7 @@ main {
 
     img {
       width: 100%;
-      height: 25rem;
+      height: 23rem;
       object-fit: cover;
 
       border-radius: 1rem;
@@ -36,8 +36,32 @@ main {
       min-height: 60px;
 
       padding: 0 1rem;
+      margin-bottom: 1rem;
 
       word-wrap: break-word;
+    }
+  }
+
+  .edit_delete_button_container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.5);
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      color: #ffffff;
+    }
+
+    .post_edit {
+      background-color: #0095f6;
+    }
+
+    .post_delete {
+      background-color: #e62263;
     }
   }
 }

@@ -2,15 +2,19 @@ import Component from "../../core/Component";
 
 class postDetail extends Component {
   template() {
-    const { image, title, createdAt, content } = this.$props.post;
-    const convertedTime = this.getStringDate(new Date(createdAt));
+    if (this.$props.post) {
+      const { image, title, createdAt, content } = this.$props.post;
+      const convertedTime = this.getStringDate(new Date(createdAt));
 
-    return `
-      <img src=${image} alt="게시글 이미지"/>
-      <strong class="post_detail_title">${title}</strong>
-      <time datetime=${createdAt}>${convertedTime}</time>
-      <p class="post_detail_content">${content}</p>
-    `;
+      return `
+        <img src=${image} alt="게시글 이미지"/>
+        <strong class="post_detail_title">${title}</strong>
+        <time datetime=${createdAt}>${convertedTime}</time>
+        <p class="post_detail_content">${content}</p>
+      `;
+    }
+
+    return ``;
   }
 
   getStringDate(date) {
