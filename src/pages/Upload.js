@@ -1,4 +1,4 @@
-import Header from "../components/Header/index";
+import Header from "../components/common/Header/index";
 import Component from "../core/Component";
 
 class Upload extends Component {

@@ -1,5 +1,5 @@
-import Button from "../components/Button";
-import Header from "../components/Header/index";
+import Button from "../components/common/Button";
+import Header from "../components/common/Header/index";
 import PostList from "../components/PostList";
 import Component from "../core/Component";
 import { navigateTo } from "../router";

@@ -1,6 +1,6 @@
 import { deletePost, getPostDetail } from "../apis/post";
-import Button from "../components/Button";
-import Header from "../components/Header";
+import Button from "../components/common/Button";
+import Header from "../components/common/Header";
 import postDetail from "../components/PostDetail";
 import Component from "../core/Component";
 import { navigateTo } from "../router";
