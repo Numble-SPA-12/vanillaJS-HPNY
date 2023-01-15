@@ -23,7 +23,6 @@ class Post extends Component {
 
   async $getPostDetail(postId) {
     const { data } = await getPostDetail(postId);
-    console.log(data);
     this.setState({ post: data.post, comments: data.comments });
   }
 

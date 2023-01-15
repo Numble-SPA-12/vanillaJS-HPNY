@@ -7,8 +7,8 @@ class PostItem extends Component {
       .map(
         (post) =>
           `
-          <li class="post_item_container" data-post-id="${post.postId}">
-            <img src="${post.image}" alt="사용자가 올린 글의 이미지"/>
+          <li class="post_item_container" data-post-id=${post.postId}>
+            <img src=${post.image} alt="사용자가 올린 글의 이미지"/>
             <div class="post_content_container">
               <strong class="post_title">${post.title}</strong>
               <p class="post_content">${post.content}</p>

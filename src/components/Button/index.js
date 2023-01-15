@@ -2,7 +2,6 @@ import Component from "../../core/Component";
 
 class Button extends Component {
   template() {
-    console.log(this.$props);
     const { content, className } = this.$props;
 
     return `
