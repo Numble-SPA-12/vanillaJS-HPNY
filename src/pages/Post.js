@@ -1,4 +1,5 @@
 import { deletePost, getPostDetail } from "../apis/post";
+import CommentInput from "../components/CommentInput";
 import CommentList from "../components/CommentList";
 import Button from "../components/common/Button";
 import Header from "../components/common/Header";
@@ -16,6 +17,7 @@ class Post extends Component {
       <div class='post_detail_container'></div>
       <div class='edit_delete_button_container'></div>
       <ul class='comment_list'></ul>
+      <form class='comment_form'></form>
     </main>
     `;
   }
@@ -42,6 +44,7 @@ class Post extends Component {
       ".edit_delete_button_container"
     );
     const $commentList = document.querySelector(".comment_list");
+    const $commentForm = document.querySelector(".comment_form");
 
     new Header($header);
     new postDetail($postDetail, {
@@ -63,6 +66,10 @@ class Post extends Component {
       commentList: this.$state.comments,
       deleteCommentState: (commentId) => this.$deleteCommentState(commentId),
     });
+    new CommentInput($commentForm, {
+      params: this.$params,
+      createCommentState: (newComment) => this.$createCommentState(newComment),
+    });
   }
 
   $goToEditPage(postId) {
@@ -81,11 +88,17 @@ class Post extends Component {
 
   $deleteCommentState(commentId) {
     const newComments = this.$state.comments.filter((comment) => {
-      return comment.commentId !== commentId;
+      return +comment.commentId !== +commentId;
     });
 
     this.setState({
       comments: newComments,
+    });
+  }
+
+  $createCommentState(newComment) {
+    this.setState({
+      comments: [...this.$state.comments, newComment],
     });
   }
 }

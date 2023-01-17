@@ -22,7 +22,8 @@ class Button extends Component {
   setEvent() {
     if (this.$props.length) {
       this.$props.forEach(({ className, onClick }) => {
-        this.addEvent("click", `.${className.split(" ")[0]}`, () => {
+        this.addEvent("click", `.${className.split(" ")[0]}`, (e) => {
+          e.preventDefault();
           onClick();
         });
       });
@@ -30,7 +31,8 @@ class Button extends Component {
     }
 
     const { onClick } = this.$props;
-    this.addEvent("click", ".button", () => {
+    this.addEvent("click", ".button", (e) => {
+      e.preventDefault();
       onClick();
     });
   }
