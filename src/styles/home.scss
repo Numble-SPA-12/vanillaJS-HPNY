@@ -1,8 +1,4 @@
 main {
-  overflow: hidden;
-
-  padding: 0 2rem;
-
   .upload_post_button_container {
     position: fixed;
     top: 4rem;
@@ -32,7 +28,7 @@ main {
     flex-direction: column;
 
     gap: 1rem;
-    margin-top: 8rem;
+    margin-top: 4rem;
     padding-bottom: 1rem;
 
     cursor: pointer;

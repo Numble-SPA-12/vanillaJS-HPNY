@@ -1,7 +1,6 @@
 main {
   .post_detail_container {
     width: 100%;
-    margin-top: 4rem;
 
     img {
       width: 100%;
@@ -97,6 +96,56 @@ main {
 
       &:hover {
         background-color: #7b1821;
+      }
+    }
+  }
+
+  .comment_form {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    max-width: 630px;
+
+    background-color: #ffffff;
+    padding: 0 10px 10px 10px;
+
+    input {
+      width: 80%;
+
+      background-color: #fafafa;
+      border: 1px solid #cbcbcb;
+      padding: 8px 16px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+
+      &:active,
+      &:focus {
+        border: 2px solid #164ea9;
+      }
+    }
+
+    .comment_submit_container {
+      width: 20%;
+
+      background-color: #fafafa;
+      border: 1px solid #cbcbcb;
+      border-left: none;
+
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+
+      text-align: center;
+
+      button {
+        width: 100%;
+        padding: 10px 0px;
       }
     }
   }
