@@ -27,7 +27,6 @@ class CommentInput extends Component {
 
   async $createComment(postId, commentContent) {
     const { data } = await createComment(postId, commentContent);
-    alert(data);
     this.$props.createCommentState(data);
   }
 
