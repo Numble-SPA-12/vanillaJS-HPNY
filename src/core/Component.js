@@ -6,9 +6,9 @@ class Component {
   constructor($target, $props) {
     this.$target = $target;
     this.$props = $props;
-    this.render();
     this.setup();
     this.setEvent();
+    this.render();
   }
 
   setup() {}
@@ -21,7 +21,7 @@ class Component {
 
   render() {
     this.$target.innerHTML = this.template();
-    this.mounted(); // render 이후 실행
+    this.mounted();
   }
 
   setEvent() {}
@@ -33,7 +33,6 @@ class Component {
 
   addEvent(eventType, selector, callback) {
     const children = [...this.$target.querySelectorAll(selector)];
-    // selector에 명시한 것 보다 더 하위 요소가 선택되는 경우가 있을 땐 closest를 이용하여 처리 (closest => selector와 일치하는 가장 가까운 부모 탐색)
     const isTarget = (target) =>
       children.includes(target) || target.closest(selector);
 

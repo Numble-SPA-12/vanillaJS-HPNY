@@ -1,9 +1,9 @@
-import Component from "../../core/Component.js";
-import { navigateTo } from "../../router.js";
+import Component from "../../../core/Component.js";
+import { navigateTo } from "../../../router.js";
 import Button from "../Button/index.js";
 
-import leftArrowIcon from "../../assets/icon_arrow_back.svg";
-import "../../styles/header.scss";
+import leftArrowIcon from "../../../assets/icon_arrow_back.svg";
+import "../../../styles/header.scss";
 
 class Header extends Component {
   template() {

@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/common/Header";
 import Component from "../core/Component";
 
 class Edit extends Component {
