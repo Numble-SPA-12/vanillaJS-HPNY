@@ -1,23 +1,25 @@
 import { deletePost, getPostDetail } from "../apis/post";
 import CommentInput from "../components/CommentInput";
-import CommentList from "../components/CommentList";
+import CommentItem from "../components/CommentItem";
 import Button from "../components/common/Button";
 import Header from "../components/common/Header";
 import postDetail from "../components/PostDetail";
-import Component from "../core/Component";
+import Page from "../core/Page";
 import { navigateTo } from "../router";
 
 import "../styles/post.scss";
 
-class Post extends Component {
+class Post extends Page {
   template() {
     return `
     <header class='header'></header>
     <main>
-      <div class='post_detail_container'></div>
-      <div class='edit_delete_button_container'></div>
-      <ul class='comment_list'></ul>
-      <form class='comment_form'></form>
+      <section class='post_detail_container'></section>
+      <div class='button_container'></div>
+      <section>
+        <ul class='comment_list'></ul>
+        <form class='comment_form'></form>
+      </section>
     </main>
     `;
   }
@@ -40,33 +42,41 @@ class Post extends Component {
   mounted() {
     const $header = document.querySelector(".header");
     const $postDetail = document.querySelector(".post_detail_container");
-    const $buttonContainer = document.querySelector(
-      ".edit_delete_button_container"
-    );
+    const $buttonContainer = document.querySelector(".button_container");
     const $commentList = document.querySelector(".comment_list");
     const $commentForm = document.querySelector(".comment_form");
 
-    new Header($header);
+    new Header($header, {
+      header: $header,
+    });
+
     new postDetail($postDetail, {
       post: this.$state.post,
     });
-    new Button($buttonContainer, [
-      {
-        content: `수정 📝`,
-        className: `post_edit`,
-        onClick: () => this.$goToEditPage(this.$params),
-      },
-      {
-        content: `삭제 🗑️`,
-        className: `post_delete`,
-        onClick: () => this.$deletePost(this.$params),
-      },
-    ]);
-    new CommentList($commentList, {
-      commentList: this.$state.comments,
-      deleteCommentState: (commentId) => this.$deleteCommentState(commentId),
+
+    new Button($buttonContainer, {
+      content: `수정 📝`,
+      className: `post_edit`,
+      onClick: () => this.$goToEditPage(this.$params),
     });
+    new Button($buttonContainer, {
+      content: `삭제 🗑️`,
+      className: `post_delete`,
+      onClick: () => this.$deletePost(this.$params),
+    });
+
+    if (this.$state.comments) {
+      this.$state.comments.map((comment) => {
+        new CommentItem($commentList, {
+          comment,
+          deleteCommentState: (commentId) =>
+            this.$deleteCommentState(commentId),
+        });
+      });
+    }
+
     new CommentInput($commentForm, {
+      form: $commentForm,
       params: this.$params,
       createCommentState: (newComment) => this.$createCommentState(newComment),
     });

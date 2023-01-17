@@ -1,23 +1,14 @@
 import { deleteComment } from "../../apis/comment";
 import Component from "../../core/Component";
 
-class CommentList extends Component {
+class CommentItem extends Component {
   template() {
-    if (this.$props.commentList) {
-      const htmlStr = this.$props.commentList
-        ?.map(
-          ({ content, commentId }) =>
-            `<li class='comment_item'>
+    const { content, commentId } = this.$props.comment;
+
+    return `<li class='comment_item'>
               <p class='comment_content'>${content}</p>
               <button class='comment_delete' data-comment-id=${commentId}>삭제</button>
-            </li>`
-        )
-        .join("");
-
-      return htmlStr;
-    }
-
-    return ``;
+            </li>`;
   }
 
   setEvent() {
@@ -30,4 +21,4 @@ class CommentList extends Component {
   }
 }
 
-export default CommentList;
+export default CommentItem;

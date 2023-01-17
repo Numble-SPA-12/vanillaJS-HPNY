@@ -7,11 +7,13 @@ class postDetail extends Component {
       const convertedTime = this.getStringDate(new Date(createdAt));
 
       return `
-        <img src=${image} alt="게시글 이미지"/>
-        <strong class="post_detail_title">${title}</strong>
-        <time datetime=${createdAt}>${convertedTime}</time>
-        <p class="post_detail_content">${content}</p>
-      `;
+            <div>
+              <img src=${image} alt="게시글 이미지"/>
+              <strong class="post_detail_title">${title}</strong>
+              <time datetime=${createdAt}>${convertedTime}</time>
+              <p class="post_detail_content">${content}</p>
+            </div>
+        `;
     }
 
     return ``;

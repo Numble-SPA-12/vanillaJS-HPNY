@@ -41,7 +41,7 @@ main {
     }
   }
 
-  .edit_delete_button_container {
+  .button_container {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
@@ -131,7 +131,7 @@ main {
       }
     }
 
-    .comment_submit_container {
+    .comment_submit {
       width: 20%;
 
       background-color: #fafafa;
@@ -141,12 +141,9 @@ main {
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
 
-      text-align: center;
+      padding: 10px 0px;
 
-      button {
-        width: 100%;
-        padding: 10px 0px;
-      }
+      text-align: center;
     }
   }
 }

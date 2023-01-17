@@ -1,7 +1,7 @@
 import Header from "../components/common/Header";
-import Component from "../core/Component";
+import Page from "../core/Page";
 
-class Edit extends Component {
+class Edit extends Page {
   template() {
     return `
     <header class='header'></header>
@@ -14,7 +14,9 @@ class Edit extends Component {
   mounted() {
     const $header = document.querySelector(".header");
 
-    new Header($header);
+    new Header($header, {
+      header: $header,
+    });
   }
 }
 
