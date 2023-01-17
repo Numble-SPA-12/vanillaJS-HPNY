@@ -1,45 +1,21 @@
-class Component {
-  $target;
-  $props;
-  $state;
+import Page from "./Page";
 
-  constructor($target, $props) {
-    this.$target = $target;
-    this.$props = $props;
-    this.setup();
-    this.setEvent();
-    this.render();
-  }
-
-  setup() {}
-
-  mounted() {}
-
-  template() {
-    return "";
-  }
-
+class Component extends Page {
   render() {
-    this.$target.innerHTML = this.template();
+    if (this.template().length > 0)
+      this.$target.appendChild(this.parseNodeFromString(this.template()));
     this.mounted();
   }
 
-  setEvent() {}
+  parseNodeFromString(htmlString) {
+    const domParser = new DOMParser();
 
-  setState(newState) {
-    this.$state = { ...this.$state, ...newState };
-    this.render();
-  }
+    const node = domParser.parseFromString(htmlString, "text/html").body
+      .firstChild;
 
-  addEvent(eventType, selector, callback) {
-    const children = [...this.$target.querySelectorAll(selector)];
-    const isTarget = (target) =>
-      children.includes(target) || target.closest(selector);
+    node.normalize();
 
-    this.$target.addEventListener(eventType, (event) => {
-      if (!isTarget(event.target)) return false;
-      callback(event);
-    });
+    return node;
   }
 }
 

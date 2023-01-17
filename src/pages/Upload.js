@@ -1,7 +1,7 @@
 import Header from "../components/common/Header/index";
-import Component from "../core/Component";
+import Page from "../core/Page";
 
-class Upload extends Component {
+class Upload extends Page {
   template() {
     return `
     <header class='header'></header>
@@ -15,7 +15,9 @@ class Upload extends Component {
   mounted() {
     const $header = document.querySelector(".header");
 
-    new Header($header);
+    new Header($header, {
+      header: $header,
+    });
   }
 }
 

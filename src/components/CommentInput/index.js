@@ -15,12 +15,9 @@ class CommentInput extends Component {
   }
 
   mounted() {
-    const commentSubmitButton = document.querySelector(
-      ".comment_submit_container"
-    );
-
-    new Button(commentSubmitButton, {
+    new Button(this.$props.form, {
       content: `게시`,
+      className: `comment_submit`,
       onClick: () => this.$createComment(this.$props.params, this.$content),
     });
   }
