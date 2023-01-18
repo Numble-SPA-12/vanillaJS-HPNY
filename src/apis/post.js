@@ -31,7 +31,7 @@ export const uploadPost = async (postData) => {
   }
 };
 
-export const editPost = async (postData, postId) => {
+export const patchPost = async (postData, postId) => {
   try {
     const { data } = await baseInstance.patch(`/post/${postId}`, postData);
     return data;
