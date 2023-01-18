@@ -3,7 +3,6 @@ import Component from "../../../core/Component";
 class Button extends Component {
   template() {
     const { content, className, disabled } = this.$props;
-    console.log(disabled);
     return `
       <button class="${className ? className : "button"}" ${
       disabled ? "disabled" : ""

@@ -12,17 +12,23 @@ class Header extends Component {
     if (!isHomePage) {
       new Button(this.$props.header, {
         content: `<img src=${leftArrowIcon} alt="뒤로가기 버튼" class="back_arrow_img"/>`,
+        className: "back_button",
         onClick: this.goBackPage,
       });
     }
     new Button(this.$props.header, {
       content: `<h1 class="header_title">HPNY 2023</h1>`,
+      className: "logo",
       onClick: this.goHomePage,
     });
   }
 
   goBackPage() {
-    history.back();
+    if (window.location.pathname.split("/")[1] === "post") {
+      navigateTo("/");
+    } else {
+      history.back();
+    }
   }
 
   goHomePage() {
