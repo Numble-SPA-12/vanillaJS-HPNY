@@ -2,10 +2,11 @@ import Component from "../../../core/Component";
 
 class TextArea extends Component {
   template() {
-    const { name, rows, placeholder, maxlength, className } = this.$props;
-    return `<textarea name=${name} placeholder="${placeholder}" rows=${rows}, class="${
+    const { name, rows, placeholder, maxlength, className, value } =
+      this.$props;
+    return `<textarea name=${name} placeholder="${placeholder}" rows=${rows} class="${
       className ? className : "textarea"
-    }" maxlength=${maxlength}></textarea>`;
+    }" maxlength=${maxlength}>${value}</textarea>`;
   }
 
   setEvent() {

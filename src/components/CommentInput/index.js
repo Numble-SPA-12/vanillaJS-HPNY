@@ -12,6 +12,7 @@ class CommentInput extends Component {
     new Input(this.$props.form, {
       type: "text",
       placeholder: "댓글을 입력해주세요 !",
+      value: this.$content,
       className: "comment_content",
       onChange: (content) => this.handleInputContent(content),
     });

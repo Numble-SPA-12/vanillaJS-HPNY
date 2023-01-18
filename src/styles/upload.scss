@@ -11,34 +11,36 @@ main {
       border-radius: 1rem;
     }
 
-    .random_image_button {
+    .random_image_button,
+    .post_upload_button {
       background-color: #0095f6;
-
-      // &:invalid {
-      //   background-color: #dddddd;
-      // }
+      color: #ffffff;
+    }
+    .completed_button,
+    .invalid_button {
+      background-color: #dddddd;
     }
 
     .upload_title {
       border: 1px solid rgba($color: #000000, $alpha: 0.6);
+
+      &:active,
+      &:focus {
+        border: 2px solid #164ea9;
+      }
     }
 
     .upload_content {
       resize: none;
-
       border: 1px solid rgba($color: #000000, $alpha: 0.6);
 
+      &:active,
+      &:focus {
+        border: 2px solid #164ea9;
+      }
       &::-webkit-scrollbar {
         display: none;
       }
-    }
-
-    .post_upload_button {
-      background-color: #dddddd;
-
-      // &:valid {
-      //   background-color: #0095f6;
-      // }
     }
   }
 }

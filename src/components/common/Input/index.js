@@ -2,10 +2,10 @@ import Component from "../../../core/Component";
 
 class Input extends Component {
   template() {
-    const { type, placeholder, className } = this.$props;
+    const { type, placeholder, className, value } = this.$props;
     return `<input type=${type} class="${
       className ? className : "input"
-    }" placeholder="${placeholder}"/>`;
+    }" placeholder="${placeholder}" value="${value}"/>`;
   }
 
   setEvent() {

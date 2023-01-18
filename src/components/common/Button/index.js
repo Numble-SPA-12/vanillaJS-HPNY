@@ -2,9 +2,12 @@ import Component from "../../../core/Component";
 
 class Button extends Component {
   template() {
-    const { content, className } = this.$props;
+    const { content, className, disabled } = this.$props;
+    console.log(disabled);
     return `
-      <button class="${className ? className : "button"}">${content}</button>
+      <button class="${className ? className : "button"}" ${
+      disabled ? "disabled" : ""
+    }>${content}</button>
     `;
   }
 

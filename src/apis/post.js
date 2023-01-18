@@ -27,7 +27,7 @@ export const uploadPost = async (postData) => {
     });
     return data;
   } catch (err) {
-    return console.error(err);
+    return err;
   }
 };
 
