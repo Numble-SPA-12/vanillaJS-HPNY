@@ -57,7 +57,7 @@ class Post extends Page {
     new Button($buttonContainer, {
       content: `수정 📝`,
       className: `post_edit`,
-      onClick: () => this.$goToEditPage(this.$params),
+      onClick: () => this.$goToEditPage(this.$params, this.$state.post),
     });
     new Button($buttonContainer, {
       content: `삭제 🗑️`,
@@ -82,8 +82,8 @@ class Post extends Page {
     });
   }
 
-  $goToEditPage(postId) {
-    navigateTo(`/edit/${postId}`);
+  $goToEditPage(postId, state) {
+    navigateTo(`/edit/${postId}`, state);
   }
 
   $goToHomePage() {
