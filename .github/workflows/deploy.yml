@@ -27,6 +27,16 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
 
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "BASE_API_URL=${{ secrets.BASE_API_URL}}" >> .env
+          echo "UNSPLASH_API_URL=${{ secrets.UNSPLASH_API_URL}}" >> .env
+          echo "UNSPLASH_ACCESS_KEY=${{ secrets.UNSPLASH_ACCESS_KEY}}" >> .env
+        env:
+          BASE_API_URL: ${{ secrets.BASE_API_URL}}
+          UNSPLASH_API_URL: ${{ secrets.UNSPLASH_API_URL}}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY}}
+
       - name: Install Dependencies
         run: yarn
 
