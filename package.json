@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack serve --open --mode=development",
-    "deploy": "aws s3 sync ./dist s3://happy-new-year-project --profile=yun-dev"
+    "deploy": "aws s3 sync ./dist s3://happy-new-year-project --profile=numble_hpny"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
