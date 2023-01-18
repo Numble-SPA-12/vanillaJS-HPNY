@@ -1,20 +1,22 @@
 import { createComment } from "../../apis/comment";
 import Component from "../../core/Component";
 import Button from "../common/Button";
+import Input from "../common/Input";
 
 class CommentInput extends Component {
-  template() {
-    return `
-      <input type="text" class="comment_content" placeholder="댓글을 입력해주세요 !"/>
-      <div class="comment_submit_container"></div>
-    `;
-  }
-
   setup() {
     this.$content = "";
   }
 
   mounted() {
+    new Input(this.$props.form, {
+      type: "text",
+      placeholder: "댓글을 입력해주세요 !",
+      value: this.$content,
+      className: "comment_content",
+      onChange: (content) => this.handleInputContent(content),
+    });
+
     new Button(this.$props.form, {
       content: `게시`,
       className: `comment_submit`,
@@ -27,10 +29,8 @@ class CommentInput extends Component {
     this.$props.createCommentState(data);
   }
 
-  setEvent() {
-    this.addEvent("change", ".comment_content", (e) => {
-      this.$content = e.target.value;
-    });
+  handleInputContent(content) {
+    this.$content = content;
   }
 }
 

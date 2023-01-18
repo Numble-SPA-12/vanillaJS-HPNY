@@ -116,12 +116,14 @@ main {
     background-color: #ffffff;
     padding: 0 10px 10px 10px;
 
-    input {
+    .comment_content {
       width: 80%;
+      height: 40px;
+      padding: 0px 16px;
 
       background-color: #fafafa;
       border: 1px solid #cbcbcb;
-      padding: 8px 16px;
+
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
 
@@ -133,6 +135,11 @@ main {
 
     .comment_submit {
       width: 20%;
+      height: 40px;
+
+      padding: 10px 0px;
+
+      text-align: center;
 
       background-color: #fafafa;
       border: 1px solid #cbcbcb;
@@ -140,10 +147,6 @@ main {
 
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
-
-      padding: 10px 0px;
-
-      text-align: center;
     }
   }
 }

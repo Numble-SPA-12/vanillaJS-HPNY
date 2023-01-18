@@ -1,8 +1,8 @@
-import instance from "./instance";
+import { baseInstance } from "./instance";
 
 export const createComment = async (postId, commentContent) => {
   try {
-    const { data } = await instance.post(`/comment/${postId}`, {
+    const { data } = await baseInstance.post(`/comment/${postId}`, {
       content: commentContent,
     });
     return data;
@@ -18,7 +18,7 @@ export const createComment = async (postId, commentContent) => {
 
 export const deleteComment = async (commentId) => {
   try {
-    const { data } = await instance.delete(`/comment/${commentId}`);
+    const { data } = await baseInstance.delete(`/comment/${commentId}`);
     return data;
   } catch (err) {
     console.error(err);
