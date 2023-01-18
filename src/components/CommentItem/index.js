@@ -12,9 +12,8 @@ class CommentItem extends Component {
   }
 
   setEvent() {
-    this.addEvent("click", ".comment_delete", async (e) => {
-      const commentId = e.target.dataset.commentId;
-
+    const { commentId } = this.$props.comment;
+    this.addEvent("click", `[data-comment-id="${commentId}"]`, async () => {
       await deleteComment(commentId);
       this.$props.deleteCommentState(commentId);
     });
