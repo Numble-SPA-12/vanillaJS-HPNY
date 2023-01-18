@@ -20,7 +20,11 @@ export const getPostDetail = async (postId) => {
 
 export const uploadPost = async (postData) => {
   try {
-    const { data } = await instance.post(`/post`, postData);
+    const { data } = await instance.post(`/post`, {
+      title: postData.title,
+      content: postData.content,
+      image: postData.image,
+    });
     return data;
   } catch (err) {
     return console.error(err);

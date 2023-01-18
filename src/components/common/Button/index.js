@@ -4,7 +4,7 @@ class Button extends Component {
   template() {
     const { content, className } = this.$props;
     return `
-      <button class="button ${className ? className : ""}">${content}</button>
+      <button class="${className ? className : "button"}">${content}</button>
     `;
   }
 
