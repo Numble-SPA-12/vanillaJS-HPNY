@@ -5,8 +5,9 @@
     "axios": "^1.2.2"
   },
   "scripts": {
-    "build": "webpack --mode=development",
-    "dev": "webpack serve --open --mode=development"
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --open --mode=development",
+    "deploy": "aws s3 sync ./dist s3://happy-new-year-project --profile=yun-dev"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
