@@ -9,21 +9,21 @@
   align-items: center;
 
   width: 100vw;
-  max-width: 660px;
+  max-width: 640px;
   height: 4rem;
 
-  padding: 0 0.6rem;
+  padding: 0 1rem;
 
   background-color: #ffffff;
   z-index: 10;
 
   .header_title {
     font-size: 1.4rem;
+    margin-right: 0.2rem;
   }
 
   .back_arrow_img {
     width: 2rem;
     height: 2rem;
-    margin-left: 0.5rem;
   }
 }

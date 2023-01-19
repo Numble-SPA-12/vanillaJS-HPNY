@@ -1,7 +1,6 @@
-import { deletePost, getPostDetail } from "../apis/post";
+import { getPostDetail } from "../apis/post";
 import CommentInput from "../components/CommentInput";
 import CommentItem from "../components/CommentItem";
-import Button from "../components/common/Button";
 import Header from "../components/common/Header";
 import postDetail from "../components/PostDetail";
 import Page from "../core/Page";
@@ -15,8 +14,7 @@ class Post extends Page {
     <header class='header'></header>
     <main>
       <section class='post_detail_container'></section>
-      <div class='button_container'></div>
-      <section>
+      <section class='comment_container'>
         <ul class='comment_list'></ul>
         <form class='comment_form'></form>
       </section>
@@ -42,7 +40,6 @@ class Post extends Page {
   mounted() {
     const $header = document.querySelector(".header");
     const $postDetail = document.querySelector(".post_detail_container");
-    const $buttonContainer = document.querySelector(".button_container");
     const $commentList = document.querySelector(".comment_list");
     const $commentForm = document.querySelector(".comment_form");
 
@@ -52,17 +49,7 @@ class Post extends Page {
 
     new postDetail($postDetail, {
       post: this.$state.post,
-    });
-
-    new Button($buttonContainer, {
-      content: `수정 📝`,
-      className: `post_edit`,
-      onClick: () => this.$goToEditPage(this.$params, this.$state.post),
-    });
-    new Button($buttonContainer, {
-      content: `삭제 🗑️`,
-      className: `post_delete`,
-      onClick: () => this.$deletePost(this.$params),
+      params: this.$params,
     });
 
     if (this.$state.comments) {
@@ -82,17 +69,8 @@ class Post extends Page {
     });
   }
 
-  $goToEditPage(postId, state) {
-    navigateTo(`/edit/${postId}`, state);
-  }
-
   $goToHomePage() {
     alert("존재하지 않는 글입니다!");
-    navigateTo(`/`);
-  }
-
-  async $deletePost(postId) {
-    await deletePost(postId);
     navigateTo(`/`);
   }
 

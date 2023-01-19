@@ -42,7 +42,7 @@ class Upload extends Page {
     });
 
     new Button($uploadDataContainer, {
-      content: "랜덤 이미지 생성",
+      content: !image ? "랜덤 이미지 생성" : "랜덤 이미지 생성 완료",
       className: !image ? "random_image_button" : "completed_button",
       onClick: () => this.$handleImage(),
     });
