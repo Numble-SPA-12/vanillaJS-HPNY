@@ -57,12 +57,8 @@ a {
 
 #app {
   width: 100vw;
-  max-width: 720px;
+  max-width: 640px;
   height: 100vh;
 
   padding: 0 1rem;
-}
-
-main {
-  padding: 4rem 2rem;
 }

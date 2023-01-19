@@ -1,4 +1,10 @@
+import { deletePost } from "../../apis/post";
 import Component from "../../core/Component";
+import { navigateTo } from "../../router";
+import Button from "../common/Button";
+
+import editIcon from "../../assets/icon_edit_alt.svg";
+import deleteIcon from "../../assets/icon_delete.svg";
 
 class postDetail extends Component {
   template() {
@@ -10,13 +16,32 @@ class postDetail extends Component {
             <div>
               <img src=${image} alt="게시글 이미지"/>
               <strong class="post_detail_title">${title}</strong>
-              <time datetime=${createdAt}>${convertedTime}</time>
               <p class="post_detail_content">${content}</p>
+              <div class="time_button_container">
+                <time datetime=${createdAt}>${convertedTime}</time>
+                <div class="button_container"></div>
+              </div>
             </div>
         `;
     }
 
     return ``;
+  }
+
+  mounted() {
+    const $buttonContainer = document.querySelector(".button_container");
+
+    new Button($buttonContainer, {
+      content: `<img src=${editIcon} alt="수정 버튼" />`,
+      className: `post_edit`,
+      onClick: () => this.$goToEditPage(this.$props.params),
+    });
+
+    new Button($buttonContainer, {
+      content: `<img src=${deleteIcon} alt="삭제 버튼" />`,
+      className: `post_delete`,
+      onClick: () => this.$deletePost(this.$props.params),
+    });
   }
 
   getStringDate(date) {
@@ -32,7 +57,16 @@ class postDetail extends Component {
       day = `0${day}`;
     }
 
-    return `${year}. ${month}. ${day}`;
+    return `${year}년 ${month}월 ${day}일`;
+  }
+
+  $goToEditPage(postId) {
+    navigateTo(`/edit/${postId}`);
+  }
+
+  async $deletePost(postId) {
+    await deletePost(postId);
+    navigateTo(`/`);
   }
 }
 
