@@ -17,6 +17,17 @@ class Component extends Page {
 
     return node;
   }
+
+  escape(str) {
+    const charToEntity = {
+      "<": "&lt;",
+      ">": "&gt;",
+    };
+
+    return str.replace(/[<>]/g, function (char) {
+      return charToEntity[char] || char;
+    });
+  }
 }
 
 export default Component;
