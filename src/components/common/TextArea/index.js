@@ -15,7 +15,7 @@ class TextArea extends Component {
       "change",
       className ? `.${className.split(" ")[0]}` : ".textarea",
       (e) => {
-        onChange(e.target.value);
+        onChange(this.escape(e.target.value));
       }
     );
   }

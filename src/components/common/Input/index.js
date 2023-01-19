@@ -5,7 +5,7 @@ class Input extends Component {
     const { type, placeholder, className, value } = this.$props;
     return `<input type=${type} class="${
       className ? className : "input"
-    }" placeholder="${placeholder}" value="${value}"/>`;
+    }" placeholder="${placeholder}" value=${value} >`;
   }
 
   setEvent() {
@@ -14,7 +14,7 @@ class Input extends Component {
       "change",
       className ? `.${className.split(" ")[0]}` : ".input",
       (e) => {
-        onChange(e.target.value);
+        onChange(this.escape(e.target.value));
       }
     );
   }
