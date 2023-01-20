@@ -29,19 +29,21 @@ class postDetail extends Component {
   }
 
   mounted() {
-    const $buttonContainer = document.querySelector(".button_container");
+    if (this.$props.post) {
+      const $buttonContainer = document.querySelector(".button_container");
 
-    new Button($buttonContainer, {
-      content: `<img src=${editIcon} alt="수정 버튼" />`,
-      className: `post_edit`,
-      onClick: () => this.$goToEditPage(this.$props.params),
-    });
+      new Button($buttonContainer, {
+        content: `<img src=${editIcon} alt="수정 버튼" />`,
+        className: `post_edit`,
+        onClick: () => this.$goToEditPage(this.$props.params),
+      });
 
-    new Button($buttonContainer, {
-      content: `<img src=${deleteIcon} alt="삭제 버튼" />`,
-      className: `post_delete`,
-      onClick: () => this.$deletePost(this.$props.params),
-    });
+      new Button($buttonContainer, {
+        content: `<img src=${deleteIcon} alt="삭제 버튼" />`,
+        className: `post_delete`,
+        onClick: () => this.$deletePost(this.$props.params),
+      });
+    }
   }
 
   getStringDate(date) {
